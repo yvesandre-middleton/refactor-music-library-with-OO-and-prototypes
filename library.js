@@ -26,8 +26,8 @@ var library = {
 // FUNCTIONS TO IMPLEMENT:
 
 // prints a list of all playlists, in the form:
-// 111: Coding Music - 2 tracks
-// 222: Empty Playlist - 0 tracks
+// p01: Coding Music - 2 tracks
+// p02: Other Playlist - 1 tracks
 
 var printPlaylists = function () {
 
@@ -35,9 +35,9 @@ var printPlaylists = function () {
 
 
 // prints a list of all tracks, in the form:
-// 123: Code Monkey by Jonathan Coulton (Thing a Week Three)
-// 456: Model View Controller by James Dempsey (WWDC 2003)
-// 789: Four Thirty-Three by John Cage (Woodstock 1952)
+// t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
+// t02: Model View Controller by James Dempsey (WWDC 2003)
+// t03: Four Thirty-Three by John Cage (Woodstock 1952)
 
 var printTracks = function () {
 
@@ -45,9 +45,9 @@ var printTracks = function () {
 
 
 // prints a list of tracks for a given playlist, in the form:
-// 111: Coding Music - 2 tracks
-// 345: Code Monkey by Jonathan Coulton (Thing a Week Three)
-// 456: Model View Controller by James Dempsey (WWDC 2003)
+// p01: Coding Music - 2 tracks
+// t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
+// t02: Model View Controller by James Dempsey (WWDC 2003)
 
 var printPlaylist = function (playlistId) {
 
