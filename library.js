@@ -1,24 +1,24 @@
 var library = {
-  tracks: { 123: { id: 123,
+  tracks: { t01: { id: "t01",
                    name: "Code Monkey",
                    artist: "Jonathan Coulton",
                    album: "Thing a Week Three" },
-            456: { id: 456,
+            t02: { id: "t02",
                    name: "Model View Controller",
                    artist: "James Dempsey",
                    album: "WWDC 2003"},
-            789: { id: 789,
+            t03: { id: "t03",
                    name: "Four Thirty-Three",
                    artist: "John Cage",
                    album: "Woodstock 1952"}
           },
-  playlists: { 111: { id: 111,
+  playlists: { p01: { id: "p01",
                       name: "Coding Music",
-                      tracks: [123, 456]
+                      tracks: ["t01", "t02"]
                     },
-               222: { id: 222,
-                      name: "Empty Playlist",
-                      tracks: []
+               p02: { id: "p02",
+                      name: "Other Playlist",
+                      tracks: ["t03"]
                     }
              }
 }
