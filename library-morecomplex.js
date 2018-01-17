@@ -30,15 +30,13 @@ var library = {
 // p02: Other Playlist - 1 tracks
 
 var printPlaylists = function () {
-var playlist1 = [];
 var a = library.playlists
-for (var property1 in a) {
- playlist1.push(a[property1])
-console.log(a[property1].id.toString(),":" + a[property1].name.toString() + a[property1].tracks.length.toString())
+for (var b in a) {
+console.log(b+": "+ a[b].name + " - " + a[b].tracks.length + " tracks")
 // console.log(a[property1].name )
 // console.log(a[property1].tracks.length)
 }
-return playlist1;
+return b;
 }
 
 printPlaylists();
@@ -49,9 +47,16 @@ printPlaylists();
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 
 var printTracks = function () {
-
+var a = library.tracks
+for (var b in a) {
+console.log(b+": "+ a[b].name + " by " + a[b].artist + " " + "(" + a[b].album + ")" );
+// console.log(a[property1].name )
+// console.log(a[property1].tracks.length)
+}
+return b;
 }
 
+printTracks();
 
 // prints a list of tracks for a given playlist, in the form:
 // p01: Coding Music - 2 tracks
