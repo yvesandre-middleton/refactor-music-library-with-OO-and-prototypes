@@ -22,63 +22,62 @@ var library = {
                     }
              },
 
-printPlaylists: function () {
-var a = this.playlists
-  for (var b in a) {
-     console.log(b+": "+ a[b].name + " - " + a[b].tracks.length + " tracks")
+  printPlaylists: function () {
+  var a = this.playlists
+    for (var b in a) {
+       console.log(b+": "+ a[b].name + " - " + a[b].tracks.length + " tracks")
+    }
+  return b;
+  },
+
+  printTracks: function () {
+  var a = this.tracks
+    for (var b in a) {
+      console.log(b+": "+ a[b].name + " by " + a[b].artist + " " + "(" + a[b].album + ")" );
+    }
+  return b;
+  },
+
+  printPlaylist: function (playlistId) {
+
+  var findPlaylist = this.playlists[playlistId]
+  var findTrack = this.playlists[playlistId].tracks
+
+  console.log(playlistId +": "+ findPlaylist.name + " - " + findPlaylist.tracks.length+ " tracks")
+
+  for (var z in findTrack) {
+    console.log(findPlaylist.tracks[z] + ": " + this.tracks[findPlaylist.tracks[z]].name + " by " + "(" + this.tracks[findPlaylist.tracks[z]].album + ")");
+    }
+  },
+  addTrackToPlaylist: function (trackId, playlistId) {
+  var findTrack  = this.tracks[trackId].id;
+  var findPlaylist = this.playlists[playlistId];
+  findPlaylist.tracks.push(findTrack);
+  console.log(findPlaylist);
+  },
+  uid: function() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  },
+  addTrack:function (name, artist, album) {
+  var newTrackId = this.uid();
+  var newObj = {
+    id: newTrackId,
+    name: name,
+    artist: artist,
+    album: album
+    }
+    this.tracks[newTrackId] = newObj;
+  },
+  addPlaylist: function (name) {
+  var newPlaylistId = this.uid();
+  var newObj = {
+    id: newPlaylistId,
+    name: name,
+    tracks: [],
+    }
+    library.playlists[newPlaylistId] = newObj;
+    }
   }
-return b;
-},
-
-printTracks: function () {
-var a = this.tracks
-  for (var b in a) {
-    console.log(b+": "+ a[b].name + " by " + a[b].artist + " " + "(" + a[b].album + ")" );
-  }
-return b;
-},
-
-printPlaylist: function (playlistId) {
-
-var findPlaylist = this.playlists[playlistId]
-var findTrack = this.playlists[playlistId].tracks
-
-console.log(playlistId +": "+ findPlaylist.name + " - " + findPlaylist.tracks.length+ " tracks")
-
-for (var z in findTrack) {
-  console.log(findPlaylist.tracks[z] + ": " + this.tracks[findPlaylist.tracks[z]].name + " by " + "(" + this.tracks[findPlaylist.tracks[z]].album + ")");
-  }
-},
-addTrackToPlaylist: function (trackId, playlistId) {
-var findTrack  = this.tracks[trackId].id;
-var findPlaylist = this.playlists[playlistId];
-findPlaylist.tracks.push(findTrack);
-console.log(findPlaylist);
-},
-uid: function() {
-  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-},
-addTrack:function (name, artist, album) {
-var newTrackId = this.uid();
-var newObj = {
-  id: newTrackId,
-  name: name,
-  artist: artist,
-  album: album
-  }
-  this.tracks[newTrackId] = newObj;
-},
-addPlaylist: function (name) {
-var newPlaylistId = this.uid();
-var newObj = {
-  id: newPlaylistId,
-  name: name,
-  tracks: [],
-  }
-
-library.playlists[newPlaylistId] = newObj;
-}
-}
 
 // FUNCTIONS TO IMPLEMENT:
 
@@ -124,8 +123,8 @@ library.playlists[newPlaylistId] = newObj;
 // adds a playlist to the library
 
 
-library.addPlaylist('some guy');
-console.log(library.playlists);
+// library.addPlaylist('some guy');
+// console.log(library.playlists);
 
 // STRETCH:
 // given a query string string, prints a list of tracks
