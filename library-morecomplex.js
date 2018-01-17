@@ -31,11 +31,11 @@ var library = {
 
 var printPlaylists = function () {
 var a = library.playlists
-for (var b in a) {
-console.log(b+": "+ a[b].name + " - " + a[b].tracks.length + " tracks")
+  for (var b in a) {
+    console.log(b+": "+ a[b].name + " - " + a[b].tracks.length + " tracks")
 // console.log(a[property1].name )
 // console.log(a[property1].tracks.length)
-}
+  }
 return b;
 }
 
@@ -48,11 +48,11 @@ return b;
 
 var printTracks = function () {
 var a = library.tracks
-for (var b in a) {
-console.log(b+": "+ a[b].name + " by " + a[b].artist + " " + "(" + a[b].album + ")" );
+  for (var b in a) {
+    console.log(b+": "+ a[b].name + " by " + a[b].artist + " " + "(" + a[b].album + ")" );
 // console.log(a[property1].name )
 // console.log(a[property1].tracks.length)
-}
+  }
 return b;
 }
 
@@ -70,8 +70,8 @@ var findTrack = library.playlists[playlistId].tracks
 console.log(playlistId +": "+ findPlaylist.name + " - " + findPlaylist.tracks.length+ " tracks")
 
 for (var z in findTrack) {
-console.log(findPlaylist.tracks[z] + ": " + library.tracks[findPlaylist.tracks[z]].name + " by " + "(" + library.tracks[findPlaylist.tracks[z]].album + ")");
-}
+  console.log(findPlaylist.tracks[z] + ": " + library.tracks[findPlaylist.tracks[z]].name + " by " + "(" + library.tracks[findPlaylist.tracks[z]].album + ")");
+  }
 }
 // printPlaylist('p01');
 // printPlaylist('p02');
@@ -121,7 +121,8 @@ var newObj = {
   name: name,
   tracks: [],
   }
-  library.playlists[newPlaylistId] = newObj;
+
+library.playlists[newPlaylistId] = newObj;
 }
 addPlaylist('some guy');
 console.log(library.playlists);
