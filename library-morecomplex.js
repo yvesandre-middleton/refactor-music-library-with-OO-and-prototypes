@@ -63,23 +63,31 @@ return b;
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 var printPlaylist = function (playlistId) {
+
 var findPlaylist = library.playlists[playlistId]
 var findTrack = library.playlists[playlistId].tracks
+
 console.log(playlistId +": "+ findPlaylist.name + " - " + findPlaylist.tracks.length+ " tracks")
 
 for (var z in findTrack) {
 console.log(findPlaylist.tracks[z] + ": " + library.tracks[findPlaylist.tracks[z]].name + " by " + "(" + library.tracks[findPlaylist.tracks[z]].album + ")");
 }
 }
-printPlaylist('p01');
-printPlaylist('p02');
+// printPlaylist('p01');
+// printPlaylist('p02');
 
 // adds an existing track to an existing playlist
 
 var addTrackToPlaylist = function (trackId, playlistId) {
-
+var findTrack  = library.tracks[trackId].id;
+var findPlaylist = library.playlists[playlistId];
+// console.log(findPlaylist.tracks)
+findPlaylist.tracks.push(findTrack);
+console.log(findPlaylist);
 }
 
+// addTrackToPlaylist('t03', 'p01')
+// printPlaylist('p01');
 
 // generates a unique id
 // (use this for addTrack and addPlaylist)
@@ -92,16 +100,31 @@ var uid = function() {
 // adds a track to the library
 
 var addTrack = function (name, artist, album) {
-
+var newTrackId = uid();
+var newObj = {
+  id: newTrackId,
+  name: name,
+  artist: artist,
+  album: album
+  }
+  library.tracks[newTrackId] = newObj;
 }
 
-
+addTrack('the moon', 'John Doe', 'Best Album Ever')
+// console.log(library.tracks);
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
-
+var newPlaylistId = uid();
+var newObj = {
+  id: newPlaylistId,
+  name: name,
+  tracks: [],
+  }
+  library.playlists[newPlaylistId] = newObj;
 }
-
+addPlaylist('some guy');
+console.log(library.playlists);
 
 // STRETCH:
 // given a query string string, prints a list of tracks
