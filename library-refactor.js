@@ -68,6 +68,7 @@ var library = {
     }
     this.tracks[newTrackId] = newObj;
   },
+
   addPlaylist: function (name) {
   var newPlaylistId = this.uid();
   var newObj = {
@@ -134,4 +135,11 @@ var library = {
 
 var printSearchResults = function(query) {
 
-}
+    var a = library.tracks
+    for (var b in a) {
+     if (a[b].name.includes(query) || a[b].artist.includes(query) || a[b].album.includes(query));
+    }
+  return a[b];
+    }
+
+console.log(printSearchResults('Jonathan Coulton'));
